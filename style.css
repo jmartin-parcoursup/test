@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.myopie {
+    font-size: 24px;
+}
+
+.daltonisme {
+    filter: grayscale(100%);
+}
+
+.dyslexie {
+    font-family: 'Comic Sans MS', sans-serif;
+}
