@@ -55,7 +55,7 @@ function lancerCombat() {
     log.innerHTML += `<tr><td colspan="5"><strong>Gagnant : ${gagnant} !</strong></td></tr>`;
 }
 
-// Mode myopie : zoom avec un cercle autour de la souris
+// Mode myopie avec zoom sur le texte
 let zoomEnabled = false;
 let zoomCircle = document.getElementById("zoom-circle");
 
@@ -66,8 +66,13 @@ function toggleMyopie() {
 
 document.addEventListener("mousemove", function (e) {
     if (zoomEnabled) {
-        zoomCircle.style.left = `${e.pageX - 50}px`;
-        zoomCircle.style.top = `${e.pageY - 50}px`;
+        zoomCircle.style.left = `${e.pageX - 60}px`;
+        zoomCircle.style.top = `${e.pageY - 60}px`;
+
+        let elem = document.elementFromPoint(e.clientX, e.clientY);
+        if (elem && elem.innerText) {
+            zoomCircle.innerHTML = `<span>${elem.innerText}</span>`;
+        }
     }
 });
 
