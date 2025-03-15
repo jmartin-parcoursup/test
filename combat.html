@@ -9,7 +9,19 @@
 <body>
     <h1>Simulation de Combat Pokémon</h1>
     <button onclick="lancerCombat()">Lancer un combat</button>
-    <p id="resultat"></p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Tour</th>
+                <th>Pokémon 1</th>
+                <th>Attaque</th>
+                <th>Pokémon 2</th>
+                <th>Attaque</th>
+            </tr>
+        </thead>
+        <tbody id="combat-log"></tbody>
+    </table>
 
     <script src="script.js"></script>
 </body>
