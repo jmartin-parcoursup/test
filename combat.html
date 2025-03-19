@@ -15,7 +15,9 @@
             <option value="index.html">Accueil</option>
             <option value="combat.html">Simulateur de Combat</option>
             <option value="accessibilite.html">Accessibilité</option>
+            <option value="projets.html">Projets</option>
             <option value="contact.html">Contact</option>
+            <option value="a-propos.html">À Propos</option>
         </select>
     </nav>
 </header>
@@ -23,23 +25,7 @@
 <main>
     <h1>Simulateur de Combat Pokémon</h1>
     <button onclick="lancerCombat()">Lancer Combat</button>
-    <table id="resultatCombat" border="1" style="display:none;">
-        <tr>
-            <th>Pokémon</th>
-            <th>Attaques reçues</th>
-            <th>PV Restants</th>
-        </tr>
-        <tr>
-            <td>Pikachu</td>
-            <td id="attaquePikachu"></td>
-            <td id="pvPikachu">100</td>
-        </tr>
-        <tr>
-            <td>Dracaufeu</td>
-            <td id="attaqueDracaufeu"></td>
-            <td id="pvDracaufeu">100</td>
-        </tr>
-    </table>
+    <table id="resultatCombat" border="1"></table>
 </main>
 
 <footer>Fait par Jérémie Martin</footer>
