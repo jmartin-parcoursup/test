@@ -1,25 +1,45 @@
-<html><head>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+<body>
+    <!-- Menu de navigation -->
+    <header>
+        <nav>
+            <select id="menu" onchange="changerPage()">
+                <option value="index.html">Accueil</option>
+                <option value="combat.html">Simulateur de Combat</option>
+                <option value="accessibilite.html">Accessibilité</option>
+                <option value="contact.html">Contact</option>
+                <option value="apropos.html">À propos</option>
+            </select>
+        </nav>
+    </header>
 
-<body><header>
-    <nav>
-        <select id="menu" onchange="changerPage()">
-            <option value="">Aller à...</option>
-            <option value="index.html">Accueil</option>
-            <option value="combat.html">Simulateur de Combat</option>
-            <option value="accessibilite.html">Accessibilité</option>
-            <option value="projets.html">Projets</option>
-            <option value="contact.html">Contact</option>
-            <option value="a-propos.html">À Propos</option>
-        </select>
-    </nav>
-</header>
-  <footer>Fait par Jérémie Martin</footer>
+    <main>
+        <h1>Page de Contact</h1>
+        <form action="mailto:jeremie.martin4408@gmail.com" method="POST" enctype="multipart/form-data">
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" name="nom" required><br><br>
 
-<script src="script.js"></script>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="5" cols="40" required></textarea><br><br>
+
+            <input type="submit" value="Envoyer">
+        </form>
+    </main>
+
+    <footer>
+        <p>Fait par Jérémie Martin</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
