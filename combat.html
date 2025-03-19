@@ -7,26 +7,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Simulation de Combat Pokémon</h1>
-    <button onclick="lancerCombat()">Lancer un combat</button>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Tour</th>
-                <th>Pokémon 1</th>
-                <th>Attaque</th>
-                <th>Pokémon 2</th>
-                <th>Attaque</th>
-            </tr>
-        </thead>
-        <tbody id="combat-log"></tbody>
-    </table>
-
-    <script src="script.js"></script>
-</body>
-    <header>
-    <h1>Mon Site Web</h1>
+<header>
     <nav>
         <select id="menu" onchange="changerPage()">
             <option value="">Aller à...</option>
@@ -37,4 +19,31 @@
     </nav>
 </header>
 
+<main>
+    <h1>Simulateur de Combat Pokémon</h1>
+    <table border="1">
+        <tr>
+            <th>Pokémon</th>
+            <th>Attaques reçues</th>
+            <th>PV Restants</th>
+        </tr>
+        <tr>
+            <td>Pikachu</td>
+            <td>Tonnerre, Queue de fer</td>
+            <td>60/100</td>
+        </tr>
+        <tr>
+            <td>Dracaufeu</td>
+            <td>Lance-Flammes, Vol</td>
+            <td>80/100</td>
+        </tr>
+    </table>
+</main>
+
+<footer>
+    Fait par Jérémie Martin
+</footer>
+
+<script src="script.js"></script>
+</body>
 </html>
