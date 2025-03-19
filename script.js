@@ -6,7 +6,7 @@ function changerPage() {
     }
 }
 
-// 📌 Mode contraste
+// 📌 Mode contraste (Inversion des couleurs)
 document.getElementById("contraste").addEventListener('change', function () {
     if (this.checked) {
         document.body.style.backgroundColor = "#000";
@@ -17,7 +17,7 @@ document.getElementById("contraste").addEventListener('change', function () {
     }
 });
 
-// 📌 Mode dyslexie
+// 📌 Mode dyslexie (Changer la police)
 document.getElementById("Dyslexique").addEventListener('change', function () {
     if (this.checked) {
         document.body.style.fontFamily = "Comic Sans MS, sans-serif";
@@ -26,10 +26,11 @@ document.getElementById("Dyslexique").addEventListener('change', function () {
     }
 });
 
-// 📌 Mode zoom texte (Cercle qui suit la souris et agrandit le texte)
+// 📌 Mode zoom texte (Cercle autour de la souris + agrandissement du texte)
 var zoomCheckbox = document.getElementById("zoomText");
-var zoomCircle = document.createElement("div");
 
+// Ajouter un cercle pour l'effet de zoom
+var zoomCircle = document.createElement("div");
 zoomCircle.id = "zoomCursor";
 zoomCircle.style.position = "absolute";
 zoomCircle.style.width = "120px";
@@ -69,7 +70,6 @@ document.querySelectorAll('h1, h2, h3, h4, ul, p').forEach(texte => {
     });
 });
 
-
 // 📌 Simulateur de combat Pokémon
 function lancerCombat() {
     var pikachuPV = 100;
@@ -85,6 +85,10 @@ function lancerCombat() {
 
         dracaufeuPV -= degatsPikachu;
         pikachuPV -= degatsDracaufeu;
+
+        // 📌 Régénération de PV après chaque tour
+        dracaufeuPV += 5; // Dracaufeu récupère 5 PV après chaque tour
+        pikachuPV += 5; // Pikachu récupère 5 PV après chaque tour
 
         combatLog.push(
             `<tr>
