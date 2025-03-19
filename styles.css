@@ -1,31 +1,43 @@
-/* Cercle de zoom pour la myopie */
-#cursor {
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 2px solid red;
-    background-color: rgba(255, 255, 255, 0.6);
-    pointer-events: none;
-    display: none;
-    transform: translate(-50%, -50%);
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
 }
 
-/* Mode daltonien */
-.daltonien {
-    background-color: white !important;
-    color: black !important;
-    font-weight: bold;
+/* Menu de navigation */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #2c3e50;
+    padding: 15px;
+    text-align: center;
+    z-index: 1000;
 }
 
-/* Mode contraste */
-.contraste {
-    filter: invert(75%);
+nav select {
+    padding: 10px;
+    font-size: 16px;
+    background: #ecf0f1;
+    border: none;
 }
 
-/* Mode dyslexie */
-@import url('https://fonts.googleapis.com/css2?family=OpenDyslexic&display=swap');
+/* Contenu principal */
+main {
+    padding: 80px 20px 20px; /* Pour éviter le chevauchement avec le menu */
+}
 
-.dyslexie {
-    font-family: 'OpenDyslexic', Arial, sans-serif !important;
+/* Pied de page */
+footer {
+    position: fixed;
+    bottom: 0;
+    right: 10px;
+    background: #2c3e50;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
 }
