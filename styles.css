@@ -43,9 +43,14 @@ footer {
 }
 
 /* 🎯 Mode zoom texte */
-.zoom-text {
-    font-size: 24px !important;
+.zoom-texte {
+    transition: transform 0.3s ease;
 }
+
+.zoom-texte:hover {
+    transform: scale(1.2);
+}
+
 
 /* 🎯 Mode dyslexie */
 .dyslexie {
