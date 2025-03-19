@@ -54,7 +54,7 @@ document.addEventListener("mousemove", function (e) {
 });
 
 // 🎯 Agrandissement du texte sous le cercle
-document.querySelectorAll('h1, h2, h3, h4, ul, p').forEach(texte => {
+document.querySelectorAll('h1, h2,label, h3, h4, ul, p').forEach(texte => {
     const tailleInitiale = parseInt(window.getComputedStyle(texte).fontSize);
 
     texte.addEventListener('mouseover', function () {
