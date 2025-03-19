@@ -41,3 +41,21 @@ footer {
     font-size: 14px;
     border-radius: 5px;
 }
+/* 🌟 Mode Daltonien */
+.daltonien {
+    background-color: white !important;
+    color: black !important;
+    font-weight: bold;
+}
+
+/* 🌟 Mode Dyslexie */
+@import url('https://fonts.googleapis.com/css2?family=OpenDyslexic&display=swap');
+.dyslexie {
+    font-family: 'OpenDyslexic', Arial, sans-serif !important;
+}
+
+/* 🌟 Mode Contraste */
+.contraste {
+    filter: invert(75%);
+}
+
