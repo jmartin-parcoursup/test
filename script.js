@@ -1,64 +1,86 @@
-var malvoyantCheckbox = document.getElementById("MALVOYANT"); 
+// 📌 Menu déroulant pour naviguer entre les pages
+function changerPage() {
+    var page = document.getElementById("menu").value;
+    if (page) {
+        window.location.href = page;
+    }
+}
+
+// 📌 Sélection des éléments
+var malvoyantCheckbox = document.getElementById("MALVOYANT");
 var daltonienCheckbox = document.getElementById("Daltonien");
 var dyslexicCheckbox = document.getElementById("Dyslexique");
 var contrasteCheckbox = document.getElementById("contraste");
-var page = document.querySelector('body');
-var cursor = document.getElementById("cursor");
+var body = document.body;
+var cursor = document.createElement("div");
 
-// Mode myopie : Zoom sur le texte sous la souris
+// 📌 Ajout du cercle pour le mode myopie
+cursor.id = "cursor";
+cursor.style.position = "absolute";
+cursor.style.width = "120px";
+cursor.style.height = "120px";
+cursor.style.borderRadius = "50%";
+cursor.style.border = "2px solid red";
+cursor.style.backgroundColor = "rgba(255, 255, 255, 0.6)";
+cursor.style.pointerEvents = "none";
+cursor.style.display = "none";
+cursor.style.transform = "translate(-50%, -50%)";
+document.body.appendChild(cursor);
+
+// 📌 Mode Myopie : Zoom sur le texte sous la souris
 malvoyantCheckbox.addEventListener('change', function () {
-    var textes = document.querySelectorAll('h1, h2, h3, h4, ul, p');
+    var textes = document.querySelectorAll('h1, h2, h3, h4, p, ul, li');
 
-    document.body.addEventListener("mousemove", function(e) {
-        if (malvoyantCheckbox.checked) {
-            cursor.style.display = "block";
+    if (malvoyantCheckbox.checked) {
+        cursor.style.display = "block";
+
+        document.body.addEventListener("mousemove", function (e) {
             cursor.style.left = e.clientX + "px";
             cursor.style.top = e.clientY + "px";
-        } else {
-            cursor.style.display = "none";
-        }
-    });
+        });
 
-    textes.forEach(texte => {
-        const tailleInitiale = parseInt(window.getComputedStyle(texte).fontSize);
+        textes.forEach(texte => {
+            const tailleInitiale = parseInt(window.getComputedStyle(texte).fontSize);
 
-        texte.addEventListener('mouseover', function () {
-            if (malvoyantCheckbox.checked) {
+            texte.addEventListener('mouseover', function () {
                 texte.style.fontSize = (tailleInitiale + 10) + 'px';
-            }
-        });
+            });
 
-        texte.addEventListener('mouseout', function () {
-            if (malvoyantCheckbox.checked) {
+            texte.addEventListener('mouseout', function () {
                 texte.style.fontSize = tailleInitiale + 'px';
-            }
+            });
         });
-    });
-});
-
-// Mode dyslexie : Changement de police
-dyslexicCheckbox.addEventListener('change', function () {
-    if (dyslexicCheckbox.checked) {
-        page.classList.add('dyslexie');
     } else {
-        page.classList.remove('dyslexie');
+        cursor.style.display = "none";
+        textes.forEach(texte => {
+            texte.style.fontSize = '';
+        });
     }
 });
 
-// Mode daltonien : Changement des couleurs
+// 📌 Mode Daltonien : Changement des couleurs pour meilleure lisibilité
 daltonienCheckbox.addEventListener('change', function () {
     if (daltonienCheckbox.checked) {
-        page.classList.add('daltonien');
+        body.classList.add('daltonien');
     } else {
-        page.classList.remove('daltonien');
+        body.classList.remove('daltonien');
     }
 });
 
-// Mode contraste : Inversion des couleurs
+// 📌 Mode Dyslexie : Application de la police OpenDyslexic
+dyslexicCheckbox.addEventListener('change', function () {
+    if (dyslexicCheckbox.checked) {
+        body.classList.add('dyslexie');
+    } else {
+        body.classList.remove('dyslexie');
+    }
+});
+
+// 📌 Mode Contraste : Inversion des couleurs
 contrasteCheckbox.addEventListener('change', function () {
     if (contrasteCheckbox.checked) {
-        page.classList.add('contraste');
+        body.classList.add('contraste');
     } else {
-        page.classList.remove('contraste');
+        body.classList.remove('contraste');
     }
 });
