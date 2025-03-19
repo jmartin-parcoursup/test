@@ -13,15 +13,17 @@
         <select id="menu" onchange="changerPage()">
             <option value="">Aller à...</option>
             <option value="index.html">Accueil</option>
-            <option value="combat.html">Simulateur de Combat Pokémon</option>
-            <option value="accessibilite.html">Options d'Accessibilité</option>
+            <option value="combat.html">Simulateur de Combat</option>
+            <option value="accessibilite.html">Accessibilité</option>
+            <option value="contact.html">Contact</option>
         </select>
     </nav>
 </header>
 
 <main>
     <h1>Simulateur de Combat Pokémon</h1>
-    <table border="1">
+    <button onclick="lancerCombat()">Lancer Combat</button>
+    <table id="resultatCombat" border="1" style="display:none;">
         <tr>
             <th>Pokémon</th>
             <th>Attaques reçues</th>
@@ -29,20 +31,18 @@
         </tr>
         <tr>
             <td>Pikachu</td>
-            <td>Tonnerre, Queue de fer</td>
-            <td>60/100</td>
+            <td id="attaquePikachu"></td>
+            <td id="pvPikachu">100</td>
         </tr>
         <tr>
             <td>Dracaufeu</td>
-            <td>Lance-Flammes, Vol</td>
-            <td>80/100</td>
+            <td id="attaqueDracaufeu"></td>
+            <td id="pvDracaufeu">100</td>
         </tr>
     </table>
 </main>
 
-<footer>
-    Fait par Jérémie Martin
-</footer>
+<footer>Fait par Jérémie Martin</footer>
 
 <script src="script.js"></script>
 </body>
