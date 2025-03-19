@@ -72,40 +72,58 @@ document.querySelectorAll('h1, h2,label, h3, h4, ul, p').forEach(texte => {
 
 // 📌 Simulateur de combat Pokémon
 function lancerCombat() {
+    // PV des Pokémon
     var pikachuPV = 100;
     var dracaufeuPV = 100;
+    var bulbasaurPV = 100;
+    var salamèchePV = 100;
     var combatLog = [];
 
+    // Liste des Pokémon et leurs attaques
+    var pokemons = [
+        { nom: "Pikachu", attaques: ["Tonnerre", "Queue de Fer", "Éclair"], degats: [10, 20, 15] },
+        { nom: "Dracaufeu", attaques: ["Lance-Flammes", "Dracogriffe", "Flammèche"], degats: [20, 25, 30] },
+        { nom: "Bulbizarre", attaques: ["Tranch'Herbe", "Vampigraine", "Mégafouet"], degats: [15, 10, 20] },
+        { nom: "Salamèche", attaques: ["Flammèche", "Crocs Feu", "Flame Burst"], degats: [15, 20, 25] }
+    ];
+
+    // Sélection des Pokémon à combattre
+    var pokemon1 = pokemons[Math.floor(Math.random() * pokemons.length)];
+    var pokemon2 = pokemons[Math.floor(Math.random() * pokemons.length)];
+
+    // Lancer le combat pendant 5 tours
     for (let i = 0; i < 5; i++) {
-        let attaquePikachu = ["Tonnerre", "Queue de Fer", "Éclair"][Math.floor(Math.random() * 3)];
-        let attaqueDracaufeu = ["Lance-Flammes", "Dracogriffe", "Flammèche"][Math.floor(Math.random() * 3)];
+        let attaquePokemon1 = pokemon1.attaques[Math.floor(Math.random() * pokemon1.attaques.length)];
+        let attaquePokemon2 = pokemon2.attaques[Math.floor(Math.random() * pokemon2.attaques.length)];
 
-        let degatsPikachu = Math.floor(Math.random() * 20) + 10;
-        let degatsDracaufeu = Math.floor(Math.random() * 25) + 15;
+        let degatsPokemon1 = pokemon1.degats[Math.floor(Math.random() * pokemon1.degats.length)];
+        let degatsPokemon2 = pokemon2.degats[Math.floor(Math.random() * pokemon2.degats.length)];
 
-        dracaufeuPV -= degatsPikachu;
-        pikachuPV -= degatsDracaufeu;
+        // Calcul des PV après les attaques
+        pokemon2.PV -= degatsPokemon1;
+        pokemon1.PV -= degatsPokemon2;
 
-        // 📌 Régénération de PV après chaque tour
-        dracaufeuPV += 5; // Dracaufeu récupère 5 PV après chaque tour
-        pikachuPV += 5; // Pikachu récupère 5 PV après chaque tour
+        // Régénération des PV après chaque tour
+        pokemon2.PV += 5; // Pokémon 2 récupère 5 PV après chaque tour
+        pokemon1.PV += 5; // Pokémon 1 récupère 5 PV après chaque tour
 
         combatLog.push(
             `<tr>
-                <td>Pikachu</td>
-                <td>${attaquePikachu}</td>
-                <td>${degatsPikachu}</td>
-                <td>${pikachuPV > 0 ? pikachuPV : 0}</td>
+                <td>${pokemon1.nom}</td>
+                <td>${attaquePokemon1}</td>
+                <td>${degatsPokemon1}</td>
+                <td>${pokemon1.PV > 0 ? pokemon1.PV : 0}</td>
             </tr>
             <tr>
-                <td>Dracaufeu</td>
-                <td>${attaqueDracaufeu}</td>
-                <td>${degatsDracaufeu}</td>
-                <td>${dracaufeuPV > 0 ? dracaufeuPV : 0}</td>
+                <td>${pokemon2.nom}</td>
+                <td>${attaquePokemon2}</td>
+                <td>${degatsPokemon2}</td>
+                <td>${pokemon2.PV > 0 ? pokemon2.PV : 0}</td>
             </tr>`
         );
     }
 
+    // Affichage des résultats du combat
     document.getElementById("resultatCombat").innerHTML = `
         <tr>
             <th>Pokémon</th>
@@ -116,3 +134,4 @@ function lancerCombat() {
         ${combatLog.join("")}
     `;
 }
+
