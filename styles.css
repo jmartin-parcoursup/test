@@ -1,4 +1,4 @@
-/* Style général */
+/* 🌍 Style global */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,7 +7,7 @@ body {
     color: #333;
 }
 
-/* Menu de navigation */
+/* 📌 Menu de navigation */
 header {
     position: fixed;
     top: 0;
@@ -25,12 +25,12 @@ nav select {
     border: none;
 }
 
-/* Contenu principal */
+/* 📌 Contenu */
 main {
-    padding: 80px 20px 20px; /* Pour éviter le chevauchement avec le menu */
+    padding: 80px 20px 20px;
 }
 
-/* Pied de page */
+/* 📌 Pied de page */
 footer {
     position: fixed;
     bottom: 0;
@@ -41,21 +41,18 @@ footer {
     font-size: 14px;
     border-radius: 5px;
 }
-/* 🌟 Mode Daltonien */
-.daltonien {
-    background-color: white !important;
-    color: black !important;
-    font-weight: bold;
+
+/* 🎯 Mode zoom texte */
+.zoom-text {
+    font-size: 24px !important;
 }
 
-/* 🌟 Mode Dyslexie */
-@import url('https://fonts.googleapis.com/css2?family=OpenDyslexic&display=swap');
+/* 🎯 Mode dyslexie */
 .dyslexie {
-    font-family: 'OpenDyslexic', Arial, sans-serif !important;
+    font-family: 'Comic Sans MS', sans-serif !important;
 }
 
-/* 🌟 Mode Contraste */
+/* 🎯 Mode contraste */
 .contraste {
-    filter: invert(75%);
+    filter: invert(100%);
 }
-
