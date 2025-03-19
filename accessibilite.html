@@ -7,25 +7,26 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Options d'Accessibilité</h1>
-    <label><input type="checkbox" onclick="toggleMyopie()"> Mode Myopie</label><br>
-    <label><input type="checkbox" onclick="toggleDaltonisme()"> Mode Daltonisme</label><br>
-    <label><input type="checkbox" onclick="toggleDyslexie()"> Mode Dyslexie</label>
+    <header>
+        <h1>Accessibilité</h1>
+        <nav>
+            <select id="menu" onchange="changerPage()">
+                <option value="">Aller à...</option>
+                <option value="index.html">Accueil</option>
+                <option value="combat.html">Simulateur de Combat Pokémon</option>
+                <option value="accessibilite.html">Options d'Accessibilité</option>
+            </select>
+        </nav>
+    </header>
 
-    <div id="zoom-circle"></div>
+    <h2>Modes d'accessibilité</h2>
+    <label><input type="checkbox" id="MALVOYANT"> Mode Myopie</label><br>
+    <label><input type="checkbox" id="Daltonien"> Mode Daltonisme</label><br>
+    <label><input type="checkbox" id="Dyslexique"> Mode Dyslexie</label><br>
+    <label><input type="checkbox" id="contraste"> Mode Contraste</label>
+
+    <div id="cursor"></div>
 
     <script src="script.js"></script>
 </body>
-    <header>
-    <h1>Mon Site Web</h1>
-    <nav>
-        <select id="menu" onchange="changerPage()">
-            <option value="">Aller à...</option>
-            <option value="index.html">Accueil</option>
-            <option value="combat.html">Simulateur de Combat Pokémon</option>
-            <option value="accessibilite.html">Options d'Accessibilité</option>
-        </select>
-    </nav>
-</header>
-
 </html>
