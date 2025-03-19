@@ -27,30 +27,48 @@ document.getElementById("Dyslexique").addEventListener('change', function () {
 });
 
 // 📌 Mode zoom texte (Cercle qui suit la souris et agrandit le texte)
+var zoomCheckbox = document.getElementById("zoomText");
 var zoomCircle = document.createElement("div");
+
+zoomCircle.id = "zoomCursor";
 zoomCircle.style.position = "absolute";
-zoomCircle.style.width = "100px";
-zoomCircle.style.height = "100px";
+zoomCircle.style.width = "120px";
+zoomCircle.style.height = "120px";
 zoomCircle.style.borderRadius = "50%";
 zoomCircle.style.border = "2px solid red";
 zoomCircle.style.pointerEvents = "none";
 zoomCircle.style.display = "none";
+zoomCircle.style.background = "rgba(255, 0, 0, 0.1)";
 document.body.appendChild(zoomCircle);
 
-document.getElementById("zoomText").addEventListener('change', function () {
-    if (this.checked) {
+// 🎯 Déplacement du cercle avec la souris
+document.addEventListener("mousemove", function (e) {
+    if (zoomCheckbox.checked) {
         zoomCircle.style.display = "block";
+        zoomCircle.style.left = e.pageX - 60 + "px";
+        zoomCircle.style.top = e.pageY - 60 + "px";
     } else {
         zoomCircle.style.display = "none";
     }
 });
 
-document.addEventListener("mousemove", function (e) {
-    if (document.getElementById("zoomText").checked) {
-        zoomCircle.style.left = e.pageX - 50 + "px";
-        zoomCircle.style.top = e.pageY - 50 + "px";
-    }
+// 🎯 Agrandissement du texte sous le cercle
+document.querySelectorAll('h1, h2, h3, h4, ul, p').forEach(texte => {
+    const tailleInitiale = parseInt(window.getComputedStyle(texte).fontSize);
+
+    texte.addEventListener('mouseover', function () {
+        if (zoomCheckbox.checked) {
+            texte.style.fontSize = (tailleInitiale + 10) + 'px';
+        }
+    });
+
+    texte.addEventListener('mouseout', function () {
+        if (zoomCheckbox.checked) {
+            texte.style.fontSize = tailleInitiale + 'px';
+        }
+    });
 });
+
 
 // 📌 Simulateur de combat Pokémon
 function lancerCombat() {
