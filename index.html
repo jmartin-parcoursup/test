@@ -7,17 +7,31 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Bienvenue sur mon site</h1>
-        <nav>
-            <select id="menu" onchange="changerPage()">
-                <option value="">Sélectionnez une page</option>
-                <option value="combat.html">Simulateur de Combat Pokémon</option>
-                <option value="accessibilite.html">Options d'Accessibilité</option>
-            </select>
-        </nav>
-    </header>
 
-    <script src="script.js"></script>
+<header>
+    <nav>
+        <select id="menu" onchange="changerPage()">
+            <option value="">Aller à...</option>
+            <option value="index.html">Accueil</option>
+            <option value="combat.html">Simulateur de Combat Pokémon</option>
+            <option value="accessibilite.html">Options d'Accessibilité</option>
+            <option value="projets.html">Projets</option>
+            <option value="contact.html">Contact</option>
+            <option value="a-propos.html">À Propos</option>
+        </select>
+    </nav>
+</header>
+
+<main>
+    <h1>Bienvenue sur mon site</h1>
+    <p>Ce site contient plusieurs projets dont un simulateur de combat Pokémon et des options d’accessibilité.</p>
+</main>
+
+<footer>
+    Fait par Jérémie Martin
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
+
