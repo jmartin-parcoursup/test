@@ -57,7 +57,75 @@ footer {
     font-family: 'Comic Sans MS', sans-serif !important;
 }
 
+
+
 /* 🎯 Mode contraste */
 .contraste {
     filter: invert(100%);
+}
+/* Styles du combat */
+#resultatCombat {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#resultatCombat th, #resultatCombat td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+#resultatCombat th {
+    background-color: #ffcc00;
+    color: #222;
+}
+
+/* Style du texte zoom */
+#zoomTest {
+    font-size: 18px;
+    padding: 10px;
+    background: #f5f5f5;
+    width: 250px;
+    border-radius: 5px;
+}
+/* 🔍 Cercle de zoom */
+#zoomCircle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid red;
+    position: absolute;
+    pointer-events: none;
+    display: none;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* 🎮 Table du combat Pokémon */
+#resultatCombat {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#resultatCombat th, #resultatCombat td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+#resultatCombat th {
+    background-color: #ffcc00;
+    color: #222;
+    font-size: 18px;
+}
+
+/* Texte d'explication du zoom */
+#zoomTest {
+    font-size: 18px;
+    padding: 10px;
+    background: #f5f5f5;
+    width: 250px;
+    border-radius: 5px;
+    margin-left: 20px;
 }
