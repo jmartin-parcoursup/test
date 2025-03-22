@@ -7,18 +7,19 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-   <header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="combat.html">Simulateur de Combat</a></li>
-            <li><a href="accessibilite.html">Accessibilité</a></li>
-            <li><a href="projets.html">Projets</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="a_propos.html">À Propos</a></li>
-        </ul>
-    </nav>
-</header>
+    <header>
+        <nav>
+            <select id="menu" onchange="changerPage()">
+                <option value="">Aller à...</option>
+                <option value="index.html">Accueil</option>
+                <option value="combat.html">Simulateur de Combat</option>
+                <option value="accessibilite.html">Accessibilité</option>
+                <option value="contact.html">Contact</option>
+                <option value="a-propos.html">À Propos</option>
+            </select>
+        </nav>
+    </header>
+
 
 
     <main>
