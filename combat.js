@@ -77,24 +77,28 @@ function simulerAction(actionLog) {
     }
 
     actionLog.push(actionDetail);
-
-    // Mise à jour du tableau avec les actions du combat
-    updateCombatTable(actionLog);
 }
 
 // Fonction pour lancer le combat
 function lancerCombat() {
     let actionLog = [];
-    let combatInterval = setInterval(() => {
+
+    // Simuler plusieurs actions pour le combat
+    for (let i = 0; i < 10; i++) {
         simulerAction(actionLog);
 
         // Arrêter le combat si un Pokémon est à 0 PV
         if (pokemon1.hp === 0 || pokemon2.hp === 0) {
-            clearInterval(combatInterval);
-            let gagnant = pokemon1.hp > 0 ? pokemon1.name : pokemon2.name;
-            let messageFin = `<tr><td colspan="4">Le combat est terminé ! Le gagnant est ${gagnant} !</td></tr>`;
-            let tableBody = document.getElementById("resultatCombat").getElementsByTagName("tbody")[0];
-            tableBody.innerHTML += messageFin;
+            break;
         }
-    }, 2000); // Intervalle entre les actions (2 secondes)
+    }
+
+    // Mettre à jour le tableau avec toutes les actions du combat
+    updateCombatTable(actionLog);
+
+    // Annonce du gagnant
+    let gagnant = pokemon1.hp > 0 ? pokemon1.name : pokemon2.name;
+    let messageFin = `<tr><td colspan="4">Le combat est terminé ! Le gagnant est ${gagnant} !</td></tr>`;
+    let tableBody = document.getElementById("resultatCombat").getElementsByTagName("tbody")[0];
+    tableBody.innerHTML += messageFin;
 }
