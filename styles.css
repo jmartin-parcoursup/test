@@ -1,131 +1,91 @@
-/* 🌍 Style global */
+/* Global */
 body {
     font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
 }
 
-/* 📌 Menu de navigation */
 header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: #2c3e50;
-    padding: 15px;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
     text-align: center;
-    z-index: 1000;
 }
 
 nav select {
     padding: 10px;
-    font-size: 16px;
-    background: #ecf0f1;
+    background-color: #444;
+    color: white;
     border: none;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-/* 📌 Contenu */
-main {
-    padding: 80px 20px 20px;
+h1, h2 {
+    color: #333;
+    text-align: center;
 }
 
-/* 📌 Pied de page */
 footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
     position: fixed;
     bottom: 0;
-    right: 10px;
-    background: #2c3e50;
-    color: white;
-    padding: 5px 10px;
-    font-size: 14px;
-    border-radius: 5px;
-}
-
-/* 🎯 Mode zoom texte */
-.zoom-texte {
-    transition: transform 0.3s ease;
-}
-
-.zoom-texte:hover {
-    transform: scale(1.2);
-}
-
-
-/* 🎯 Mode dyslexie */
-.dyslexie {
-    font-family: 'Comic Sans MS', sans-serif !important;
-}
-
-
-
-/* 🎯 Mode contraste */
-.contraste {
-    filter: invert(100%);
-}
-/* Styles du combat */
-#resultatCombat {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
 }
 
-#resultatCombat th, #resultatCombat td {
-    border: 1px solid #ddd;
-    padding: 10px;
+/* Projets Page */
+.content {
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.projet {
+    margin-bottom: 20px;
+}
+
+.projet h2 {
+    color: #4CAF50;
+    margin-top: 0;
+}
+
+.projet p {
+    line-height: 1.6;
+}
+
+/* Accessibilité Page */
+.accessibility-option {
+    margin: 20px 0;
     text-align: center;
 }
 
-#resultatCombat th {
-    background-color: #ffcc00;
-    color: #222;
-}
-
-/* Style du texte zoom */
 #zoomTest {
     font-size: 18px;
-    padding: 10px;
-    background: #f5f5f5;
-    width: 250px;
-    border-radius: 5px;
+    text-align: center;
+    color: #555;
+    margin-top: 20px;
 }
-/* 🔍 Cercle de zoom */
+
+#zoomText:checked + #zoomTest,
+#Dyslexique:checked + #zoomTest {
+    font-size: 22px;
+}
+
+/* Zoom Effect */
 #zoomCircle {
+    position: absolute;
     width: 120px;
     height: 120px;
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
-    border: 2px solid red;
-    position: absolute;
     pointer-events: none;
+    transform: scale(2);
     display: none;
-    background: rgba(255, 255, 255, 0.2);
-}
-
-/* 🎮 Table du combat Pokémon */
-#resultatCombat {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-#resultatCombat th, #resultatCombat td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-}
-
-#resultatCombat th {
-    background-color: #ffcc00;
-    color: #222;
-    font-size: 18px;
-}
-
-/* Texte d'explication du zoom */
-#zoomTest {
-    font-size: 18px;
-    padding: 10px;
-    background: #f5f5f5;
-    width: 250px;
-    border-radius: 5px;
-    margin-left: 20px;
 }
