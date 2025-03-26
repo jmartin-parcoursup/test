@@ -1,4 +1,4 @@
-📌 Changer de page via le menu déroulant
+
 function changerPage() {
     var page = document.getElementById("menu").value;
     if (page) {
