@@ -25,18 +25,24 @@
 <main>
     <h1>Simulateur de Combat Pokémon</h1>
     <button onclick="lancerCombat()">Lancer Combat</button>
-    
+
+    <label>
+        <input type="checkbox" id="zoomText"> Activer le zoom
+    </label>
+    <div id="zoomCircle"></div>
+
     <table id="resultatCombat">
         <thead>
             <tr>
-                <th>Pokémon</th>
+                <th>Attaquant</th>
                 <th>Action</th>
                 <th>Dégâts / Soin</th>
+                <th>Défenseur</th>
                 <th>PV Restants</th>
             </tr>
         </thead>
         <tbody>
-            <!-- Les résultats du combat seront insérés ici -->
+            <!-- Les résultats du combat seront ajoutés ici dynamiquement -->
         </tbody>
     </table>
 </main>
