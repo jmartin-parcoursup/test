@@ -15,90 +15,67 @@ let pokemon2 = {
 function updateCombatTable(actionLog) {
     let tableBody = document.getElementById("resultatCombat").getElementsByTagName("tbody")[0];
     
-    // On vide le tableau à chaque mise à jour
-    tableBody.innerHTML = "";
+    tableBody.innerHTML = ""; // On vide le tableau
 
     actionLog.forEach(action => {
         let row = tableBody.insertRow();
         
-        // Pokémon
-        let cell1 = row.insertCell(0);
-        cell1.textContent = action.pokemon;
-
-        // Action
-        let cell2 = row.insertCell(1);
-        cell2.textContent = action.action;
-
-        // Dégâts/Soin
-        let cell3 = row.insertCell(2);
-        cell3.textContent = action.value;
-
-        // PV restants
-        let cell4 = row.insertCell(3);
-        cell4.textContent = action.pvRestants;
+        row.insertCell(0).textContent = action.attacker;
+        row.insertCell(1).textContent = action.action;
+        row.insertCell(2).textContent = action.value;
+        row.insertCell(3).textContent = action.defender;
+        row.insertCell(4).textContent = action.remainingHP;
     });
 }
 
-// Fonction pour simuler une action (attaque ou soin)
+// Fonction pour simuler une action
 function simulerAction(actionLog) {
-    let actions = ['attaque', 'soin'];
-    let cible = Math.random() > 0.5 ? 'pokemon1' : 'pokemon2';
-    let action = actions[Math.floor(Math.random() * actions.length)];
+    let attacker = Math.random() > 0.5 ? pokemon1 : pokemon2;
+    let defender = attacker === pokemon1 ? pokemon2 : pokemon1;
 
-    // Calcul des dégâts ou du soin
-    let valeur = action === 'attaque' ? Math.floor(Math.random() * 30) + 10 : Math.floor(Math.random() * 20) + 10;
-    let actionDetail = {
-        pokemon: '',
-        action: action === 'attaque' ? 'Attaque' : 'Soin',
-        value: valeur,
-        pvRestants: 0
-    };
+    let actionType = Math.random() > 0.5 ? "attaque" : "soin";
+    let value = Math.floor(Math.random() * 20) + 10;
 
-    if (action === 'attaque') {
-        if (cible === 'pokemon1') {
-            pokemon1.hp = Math.max(0, pokemon1.hp - valeur);
-            actionDetail.pokemon = pokemon2.name;
-            actionDetail.pvRestants = pokemon1.hp;
-        } else {
-            pokemon2.hp = Math.max(0, pokemon2.hp - valeur);
-            actionDetail.pokemon = pokemon1.name;
-            actionDetail.pvRestants = pokemon2.hp;
-        }
-    } else if (action === 'soin') {
-        if (cible === 'pokemon1') {
-            pokemon1.hp = Math.min(100, pokemon1.hp + valeur);
-            actionDetail.pokemon = pokemon1.name;
-            actionDetail.pvRestants = pokemon1.hp;
-        } else {
-            pokemon2.hp = Math.min(100, pokemon2.hp + valeur);
-            actionDetail.pokemon = pokemon2.name;
-            actionDetail.pvRestants = pokemon2.hp;
-        }
+    if (actionType === "attaque") {
+        defender.hp = Math.max(0, defender.hp - value);
+    } else {
+        attacker.hp = Math.min(100, attacker.hp + value);
     }
 
-    actionLog.push(actionDetail);
+    actionLog.push({
+        attacker: attacker.name,
+        action: actionType === "attaque" ? "Attaque" : "Soin",
+        value: value,
+        defender: defender.name,
+        remainingHP: defender.hp
+    });
 }
 
-// Fonction pour lancer le combat
+// Fonction principale de combat
 function lancerCombat() {
+    pokemon1.hp = 100;
+    pokemon2.hp = 100;
+
     let actionLog = [];
-
-    // Simuler plusieurs actions pour le combat
-    for (let i = 0; i < 10; i++) {
+    while (pokemon1.hp > 0 && pokemon2.hp > 0) {
         simulerAction(actionLog);
-
-        // Arrêter le combat si un Pokémon est à 0 PV
-        if (pokemon1.hp === 0 || pokemon2.hp === 0) {
-            break;
-        }
     }
 
-    // Mettre à jour le tableau avec toutes les actions du combat
     updateCombatTable(actionLog);
 
-    // Annonce du gagnant
     let gagnant = pokemon1.hp > 0 ? pokemon1.name : pokemon2.name;
-    let messageFin = `<tr><td colspan="4">Le combat est terminé ! Le gagnant est ${gagnant} !</td></tr>`;
-    let tableBody = document.getElementById("resultatCombat").getElementsByTagName("tbody")[0];
-    tableBody.innerHTML += messageFin;
+    document.getElementById("resultatCombat").getElementsByTagName("tbody")[0].innerHTML += 
+        `<tr><td colspan="5">Le combat est terminé ! Le gagnant est ${gagnant} !</td></tr>`;
 }
+
+// ================== ZOOM CERCLE ==================
+document.addEventListener("mousemove", function (event) {
+    let zoomCircle = document.getElementById("zoomCircle");
+    zoomCircle.style.left = event.pageX - 60 + "px";
+    zoomCircle.style.top = event.pageY - 60 + "px";
+});
+
+document.getElementById("zoomText").addEventListener("change", function () {
+    let zoomCircle = document.getElementById("zoomCircle");
+    zoomCircle.style.display = this.checked ? "block" : "none";
+});
